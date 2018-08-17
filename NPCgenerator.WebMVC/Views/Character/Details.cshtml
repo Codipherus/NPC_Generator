@@ -1,0 +1,58 @@
+﻿@model NPCgenerator.Data.Character
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Character</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalityId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalityId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RaceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfessionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfessionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hostile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hostile)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NPCgenerator.Models
+namespace NPCgenerator.Models.Details
 {
-    public enum GenderType { Male, Female }
-
-    public class CharacterCreate
+    public class CharacterDetail
     {
+        public int CharacterId { get; set; }
+        public Guid UserId { get; set; }
         public string Race { get; set; }
         public string Profession { get; set; }
         public string Equipment { get; set; }

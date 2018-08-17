@@ -1,5 +1,4 @@
 ﻿using NPCgenerator.Data;
-using NPCgenerator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +9,50 @@ namespace NPCgenerator.Services
 {
     public class CharacterService
     {
-        private readonly Guid _userId;
+        public Character CreateCharacter()
+        {
 
-        public CharacterService(Guid userId)
-        {
-            _userId = userId;
-        }
-        public bool CreateCharacter(CharacterCreate model)
-        {
-            var entity =
-                new Character()
-                {
-                    UserId = _userId,
-                    Race = model.Race,
-                    Profession = model.Profession,
-                    Equipment = model.Equipment,
-                    Personality = model.Personality,
-                };
-             using (var ctx = new ApplicationDbContext())
+            Equipment randEquipment;
+            Profession randProfession;
+            Personality randPersonality;
+            Race randRace;
+
+
+            Random rand = new Random();
+            using (var ctx = new ApplicationDbContext())
             {
-                ctx.Characters.Add(entity);
-                return ctx.SaveChanges() == 1;
+                
+                List<Equipment> equipmentList = ctx.Equipments.ToList();
+                int equipmentCount = equipmentList.Count;
+                randEquipment = equipmentList[rand.Next(0, equipmentCount)];
+
+                List<Profession> professionList = ctx.Professions.ToList();
+                int professionCount = professionList.Count;
+                randProfession = professionList[rand.Next(0, professionCount)];
+
+                List<Personality> personalityList = ctx.Personalitys.ToList();
+                int personalityCount = personalityList.Count;
+                randPersonality = personalityList[rand.Next(0, personalityCount)];
+
+                List<Race> raceList = ctx.Races.ToList();
+                int raceCount = raceList.Count;
+                randRace = raceList[rand.Next(0, raceCount)];
+
+                //Hostile (bool)
+                //Gender (Enum)
             }
+
+
+            return new Character
+            {
+                Personality = randPersonality,
+                Equipment = randEquipment,
+                Profession = randProfession,
+                Race = randRace,
+
+                //Hostile (bool)
+                //Gender (Enum)
+            };
         }
-        
     }
 }

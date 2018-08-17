@@ -1,0 +1,33 @@
+﻿@model IEnumerable<NPCgenerator.Data.Profession>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfessionName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfessionName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProfessionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProfessionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProfessionId })
+        </td>
+    </tr>
+}
+
+</table>

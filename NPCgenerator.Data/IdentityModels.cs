@@ -31,7 +31,10 @@ namespace NPCgenerator.Data
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Character> Characters { get; set; }
+        public DbSet<Race> Races { get; set; }
+        public DbSet<Profession> Professions { get; set; }
+        public DbSet<Equipment> Equipments { get; set; }
+        public DbSet<Personality> Personalitys { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

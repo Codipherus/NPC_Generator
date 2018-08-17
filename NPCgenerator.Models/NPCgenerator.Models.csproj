@@ -53,13 +53,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CharacterListItem.cs" />
-    <Compile Include="CharacterCreate.cs" />
+    <Compile Include="Details\RaceDetail.cs" />
+    <Compile Include="Edit\RaceEdit.cs" />
+    <Compile Include="MixModel.cs" />
+    <Compile Include="Create\EquipmentCreate.cs" />
+    <Compile Include="Create\PersonalityCreate.cs" />
+    <Compile Include="Details\CharacterDetail.cs" />
+    <Compile Include="ListItems\CharacterListItem.cs" />
+    <Compile Include="Create\CharacterCreate.cs" />
+    <Compile Include="Create\ProfessionCreate.cs" />
+    <Compile Include="ListItems\EquipmentListItem.cs" />
+    <Compile Include="ListItems\PersonalityListItem.cs" />
+    <Compile Include="ListItems\ProfessionListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Create\RaceCreate.cs" />
+    <Compile Include="ListItems\RaceListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
