@@ -1,4 +1,5 @@
-﻿using NPCgenerator.Data;
+﻿using NPCgenerator.Contracts;
+using NPCgenerator.Data;
 using NPCgenerator.Models;
 using NPCgenerator.Models.Create;
 using NPCgenerator.Models.Details;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace NPCgenerator.Services
 {
-    public class RaceService
+    public class RaceService : IRaceService
     {
         private readonly Guid _userId;
         
