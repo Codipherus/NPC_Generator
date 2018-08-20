@@ -2,7 +2,6 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background: black;
-    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -26,7 +25,62 @@ textarea {
 }
 
 .jumbotron {
-    background: black;
-    color: #6F0505;
 }
 
+.btnGen {
+    border: red solid 2px;
+    background-color: rgba(0,0,0,.5);
+    padding: 22px 36px;
+    font-size: 32px;
+    color: red;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Metamorphous';
+}
+
+    /* On mouse-over */
+    .btnGen:hover {
+        background: #550000;
+    }
+
+.midtopsect {
+    min-height: 150px;
+    color: #600101;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom:0;
+    color: darkgray;
+}
+h1 {
+    font-size: 150px;
+    font-family: 'Metamorphous';
+    text-shadow: 4px 4px red;
+}
+#title{
+    margin-bottom:150px;
+    margin-top:75px;
+}
+
+ul.nav li a{
+    color: red !important;
+
+}
+td {
+    color: #898989;
+    border-top: 1px solid #2F2F2F !important;
+}
+table {
+    border-color: #595858;
+}
+p {
+    border-color: #595858;
+}
+th {
+    color: red !important;
+}
+h2 {
+    color: red !important;
+}
