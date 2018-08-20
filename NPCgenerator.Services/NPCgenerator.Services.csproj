@@ -65,6 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NPCgenerator.Contracts\NPCgenerator.Contracts.csproj">
+      <Project>{D168B5F5-ADC3-4358-AEAD-3CB7E1C55657}</Project>
+      <Name>NPCgenerator.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NPCgenerator.Data\NPCgenerator.Data.csproj">
       <Project>{13d2d5f0-8dc0-40c7-8b50-6682304c9aa5}</Project>
       <Name>NPCgenerator.Data</Name>

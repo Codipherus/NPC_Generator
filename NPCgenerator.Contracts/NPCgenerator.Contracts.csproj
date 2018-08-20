@@ -54,11 +54,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="IRaceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NPCgenerator.Data\NPCgenerator.Data.csproj">
+      <Project>{13d2d5f0-8dc0-40c7-8b50-6682304c9aa5}</Project>
+      <Name>NPCgenerator.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NPCgenerator.Models\NPCgenerator.Models.csproj">
+      <Project>{ca670ea6-e283-439a-a524-77076402b6f6}</Project>
+      <Name>NPCgenerator.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
