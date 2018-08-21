@@ -14,112 +14,119 @@ using NPCgenerator.Services;
 
 namespace NPCgenerator.WebMVC.Controllers
 {
+    [Authorize]
     public class RaceController : Controller
     {
-        [Authorize]
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: Equipment
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RaceService(userId);
-            var model = service.GetRaces();
-
-            return View(model);
+            return View(db.Races.ToList());
         }
 
+        // GET: Equipment/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Race race = db.Races.Find(id);
+            if (race == null)
+            {
+                return HttpNotFound();
+            }
+            return View(race);
+        }
+
+        // GET: Equipment/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        // POST: Equipment/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(RaceCreate model)
+        public ActionResult Create([Bind(Include = "RaceId,RaceName")] Race race)
         {
-            if (!ModelState.IsValid) return View(model);
-
-            var service = CreateRaceService();
-
-            if (service.CreateRace(model))
+            if (ModelState.IsValid)
             {
-                TempData["SaveResult"] = "Your race was created.";
+                db.Races.Add(race);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Race could not be created.");
-
-            return View(model);
+            return View(race);
         }
 
-        private RaceService CreateRaceService()
+        // GET: Equipment/Edit/5
+        public ActionResult Race(int? id)
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RaceService(userId);
-            return service;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Race race = db.Races.Find(id);
+            if (race == null)
+            {
+                return HttpNotFound();
+            }
+            return View(race);
         }
 
-        public ActionResult Details(int id)
-        {
-            var svc = CreateRaceService();
-            var model = svc.GetRaceById(id);
-
-            return View(model);
-        }
-
-        public ActionResult Edit(int id)
-        {
-            var service = CreateRaceService();
-            var detail = service.GetRaceById(id);
-            var model =
-                new RaceEdit
-                {
-                    RaceId = detail.RaceId,
-                    RaceName = detail.RaceName,
-                    
-                };
-            return View(model);
-        }
-
-
+        // POST: Equipment/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, RaceEdit model)
+        public ActionResult Edit([Bind(Include = "RaceId,RaceName")] Race race)
         {
-            if (!ModelState.IsValid) return View(model);
-
-            if (model.RaceId != id)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Id Mismatch");
-                return View(model);
-            }
-
-            var service = CreateRaceService();
-
-            if (service.UpdateRace(model))
-            {
-                TempData["SaveResult"] = "Your note was updated.";
+                db.Entry(race).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "Your note could not be updated.");
-            return View(model);
+            return View(race);
         }
 
-        [ActionName("Delete")]
-        public ActionResult Delete(int id)
+        // GET: Equipment/Delete/5
+        public ActionResult Delete(int? id)
         {
-            var svc = CreateRaceService();
-            var model = svc.GetRaceById(id);
-            return View(model);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Race race = db.Races.Find(id);
+            if (race == null)
+            {
+                return HttpNotFound();
+            }
+            return View(race);
         }
 
-        [HttpPost]
-        [ActionName("Delete")]
+        // POST: Equipment/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeletePost(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            var service = CreateRaceService();
-            service.DeleteRace(id);
-            TempData["SaveResult"] = "Your note was deleted";
+            Race race = db.Races.Find(id);
+            db.Races.Remove(race);
+            db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

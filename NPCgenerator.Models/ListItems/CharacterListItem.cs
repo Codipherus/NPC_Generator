@@ -9,9 +9,7 @@ namespace NPCgenerator.Models.ListItems
 {
     public class CharacterListItem
     {
-        public int CharacterId { get; set; }
-        public Guid UserId { get; set; }
-        public GenderType Gender { get; set; }
+        public string Gender { get; set; }
         public string Race { get; set; }
         public string Profession { get; set; }
         public string Equipment { get; set; }

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace NPCgenerator.Services
 {
-    public class RaceService : IRaceService
+    public class RaceService
     {
         private readonly Guid _userId;
         
@@ -21,7 +21,7 @@ namespace NPCgenerator.Services
         {
             _userId = userId;
         }
-
+//CREATE
         public bool CreateRace(RaceCreate model)
         {
             var entity =
@@ -38,18 +38,8 @@ namespace NPCgenerator.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool UpdateRace(RaceEdit model)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Races
-                        .Single(e => e.RaceId == model.RaceId && e.OwnerId == _userId);
-                entity.RaceName = model.RaceName;
-                return ctx.SaveChanges() == 1;
-            }
-        }
+        
+//DETAIL
         public RaceDetail GetRaceById(int raceId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -67,27 +57,7 @@ namespace NPCgenerator.Services
             }
         }
 
-
-
-        public IEnumerable<RaceListItem> GetRaces()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                        .Races
-                        .Where(e => e.OwnerId == _userId)
-                        .Select(
-                            e =>
-                                new RaceListItem
-                                {
-                                    RaceName = e.RaceName,
-                                }
-                        );
-                return query.ToArray();
-            }
-
-        }
+//DELETE
         public bool DeleteRace(int raceId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -100,5 +70,67 @@ namespace NPCgenerator.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+
+//Get List
+        public List<string> GetRaceList()
+        {
+            List<string> races = new List<string>();
+            using (var ctx = new ApplicationDbContext())
+            {
+                foreach (var race in ctx.Races)
+                {
+                    races.Add(race.RaceName);
+                }
+            }
+            return races;
+        }
+
+        public string GetRandomRaceFromList(List<string> raceList)
+        {
+            Random rand = new Random();
+            var raceId = rand.Next(raceList.Count);
+            var raceName = raceList[raceId]; 
+
+            return raceName;
+        }
+
+
+
+        //Joshua's help
+        //public bool UpdateRace(RaceEdit model)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Races
+        //                .Single(e => e.RaceId == model.RaceId && e.OwnerId == _userId);
+        //        entity.RaceName = model.RaceName;
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
+
+
+        //public IEnumerable<RaceListItem> GetRaces()
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //                .Races
+        //                .Where(e => e.OwnerId == _userId)
+        //                .Select(
+        //                    e =>
+        //                        new RaceListItem
+        //                        {
+        //                            RaceName = e.RaceName,
+        //                        }
+        //                );
+        //        return query.ToArray();
+        //    }
+
+        //}
+
     }
 }

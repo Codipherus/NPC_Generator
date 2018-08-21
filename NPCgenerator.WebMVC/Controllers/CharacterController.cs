@@ -13,7 +13,14 @@ namespace NPCgenerator.WebMVC.Controllers
         public ActionResult Index()
         {
             var service = new CharacterService();
+            
             return View(service.CreateCharacter());
+        }
+        public ActionResult Details()
+        {
+            var service = new CharacterService();
+            var details = service.CreateCharacter();
+            return View(details);
         }
     }
 }

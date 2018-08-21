@@ -10,8 +10,10 @@ using NPCgenerator.Data;
 
 namespace NPCgenerator.WebMVC.Controllers
 {
+    [Authorize]
     public class ProfessionController : Controller
     {
+        
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Profession

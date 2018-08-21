@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NPCgenerator.Models.Create
 {
-    public enum GenderType { Male, Female }
+    
 
     public class CharacterCreate
     {

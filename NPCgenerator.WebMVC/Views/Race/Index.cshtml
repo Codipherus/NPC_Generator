@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NPCgenerator.Models.ListItems.RaceListItem>
+﻿@model IEnumerable<NPCgenerator.Data.Race>
 
 @{
     ViewBag.Title = "Index";
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.RaceName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new {  id=item.RaceId  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.RaceId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.RaceId  })
         </td>
     </tr>
 }

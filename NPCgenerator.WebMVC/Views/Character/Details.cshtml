@@ -1,45 +1,55 @@
-﻿@model NPCgenerator.Data.Character
+﻿@model NPCgenerator.Models.Details.CharacterDetail
 
 @{
     ViewBag.Title = "Details";
 }
+<style>
 
+</style>
 <h2>Details</h2>
 
 <div>
-    <h4>Character</h4>
+    <h4>CharacterDetail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.PersonalityId)
+            @Html.DisplayNameFor(model => model.Gender)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PersonalityId)
+            @Html.DisplayFor(model => model.Gender)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RaceId)
+            @Html.DisplayNameFor(model => model.Race)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RaceId)
+            @Html.DisplayFor(model => model.Race)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EquipmentId)
+            @Html.DisplayNameFor(model => model.Profession)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EquipmentId)
+            @Html.DisplayFor(model => model.Profession)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ProfessionId)
+            @Html.DisplayNameFor(model => model.Equipment)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ProfessionId)
+            @Html.DisplayFor(model => model.Equipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personality)
         </dd>
 
         <dt>
@@ -53,6 +63,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterId }) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Generate", "Details", "Character", null, new { @class = "btnGen button-glow" })
 </p>

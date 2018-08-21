@@ -10,6 +10,7 @@ using NPCgenerator.Data;
 
 namespace NPCgenerator.WebMVC.Controllers
 {
+    [Authorize]
     public class EquipmentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
