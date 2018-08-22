@@ -8,47 +8,23 @@
 <h2>You see a...</h2>
 
 <div>
-    <h4>CharacterDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
+    
+        
+
+    <dd>
+        @Html.DisplayFor(model => model.Gender) <a>,</a> @Html.DisplayFor(model => model.Race) <a>,</a> @Html.DisplayFor(model => model.Profession)
+    </dd>
+
+
 
         <dd>
-            @Html.DisplayFor(model => model.Gender)
+            <a>Weilding a </a>@Html.DisplayFor(model => model.Equipment)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Race)
-        </dt>
+        
 
         <dd>
-            @Html.DisplayFor(model => model.Race)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Profession)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Profession)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Equipment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Equipment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Personality)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Personality)
+            <a>Who is </a>@Html.DisplayFor(model => model.Personality)
         </dd>
 
         <dt>
