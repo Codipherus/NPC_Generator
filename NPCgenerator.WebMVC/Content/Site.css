@@ -114,4 +114,12 @@ th {
 h2 {
     color: red !important;
 }
-
+h4{
+    color: darkred !important;
+}
+dd{
+    color: darkgray !important;
+}
+dt{
+    color: darkred !important;
+}
