@@ -53,8 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Details\RaceDetail.cs" />
-    <Compile Include="Edit\RaceEdit.cs" />
     <Compile Include="MixModel.cs" />
     <Compile Include="Create\EquipmentCreate.cs" />
     <Compile Include="Create\PersonalityCreate.cs" />

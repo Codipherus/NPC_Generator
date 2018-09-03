@@ -9,9 +9,5 @@ namespace NPCgenerator.Models.ListItems
     public class RaceListItem
     {
         public string RaceName { get; set; }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

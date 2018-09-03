@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using NPCgenerator.Data;
 using NPCgenerator.Models.Create;
-using NPCgenerator.Models.Edit;
 using NPCgenerator.Services;
 
 namespace NPCgenerator.WebMVC.Controllers

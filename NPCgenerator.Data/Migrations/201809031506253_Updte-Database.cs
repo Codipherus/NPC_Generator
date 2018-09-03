@@ -1,0 +1,18 @@
+namespace NPCgenerator.Data.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class UpdteDatabase : DbMigration
+    {
+        public override void Up()
+        {
+            DropColumn("dbo.Race", "OwnerId");
+        }
+        
+        public override void Down()
+        {
+            AddColumn("dbo.Race", "OwnerId", c => c.Guid(nullable: false));
+        }
+    }
+}
