@@ -63,7 +63,7 @@ namespace NPCgenerator.WebMVC.Controllers
         }
 
         // GET: Equipment/Edit/5
-        public ActionResult Race(int? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
