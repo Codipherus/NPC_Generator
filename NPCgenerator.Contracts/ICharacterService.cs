@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NPCgenerator.Contracts
 {
-    public class Class1
+    public interface ICharacterService
     {
+
     }
 }

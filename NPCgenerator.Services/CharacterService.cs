@@ -1,4 +1,5 @@
-﻿using NPCgenerator.Data;
+﻿using NPCgenerator.Contracts;
+using NPCgenerator.Data;
 using NPCgenerator.Models.Create;
 using NPCgenerator.Models.Details;
 using System;
@@ -9,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace NPCgenerator.Services
 {
-    public class CharacterService
+    public class CharacterService : ICharacterService
+
     {
         public CharacterDetail CreateCharacter()
         {

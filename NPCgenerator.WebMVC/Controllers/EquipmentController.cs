@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using NPCgenerator.Data;
+using NPCgenerator.Models.Create;
+using NPCgenerator.Services;
 
 namespace NPCgenerator.WebMVC.Controllers
 {
@@ -47,12 +50,16 @@ namespace NPCgenerator.WebMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EquipmentId,EquipmentName")] Equipment equipment)
+        public ActionResult Create(EquipmentCreate equipment)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.Equipments.Add(equipment);
-                db.SaveChanges();
+                return View();
+            }
+
+            var svc = CreateEquipService();
+            if (svc.CreateEquipment(equipment))
+            {
                 return RedirectToAction("Index");
             }
 
@@ -124,5 +131,16 @@ namespace NPCgenerator.WebMVC.Controllers
             }
             base.Dispose(disposing);
         }
+
+        private EquipmentService CreateEquipService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EquipmentService(userId);
+
+            return service;
+        }
+
+
+
     }
 }

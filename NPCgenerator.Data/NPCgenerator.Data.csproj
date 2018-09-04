@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201809031506253_Updte-Database.Designer.cs">
       <DependentUpon>201809031506253_Updte-Database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809041804412_owneridadded.cs" />
+    <Compile Include="Migrations\201809041804412_owneridadded.Designer.cs">
+      <DependentUpon>201809041804412_owneridadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Personality.cs" />
     <Compile Include="Profession.cs" />
@@ -136,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809031506253_Updte-Database.resx">
       <DependentUpon>201809031506253_Updte-Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041804412_owneridadded.resx">
+      <DependentUpon>201809041804412_owneridadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

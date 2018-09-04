@@ -13,5 +13,6 @@ namespace NPCgenerator.Data
         public int EquipmentId { get; set; }
         [Required]
         public string EquipmentName { get; set; }
+        public Guid OwnerId { get; set; }
     }
 }
