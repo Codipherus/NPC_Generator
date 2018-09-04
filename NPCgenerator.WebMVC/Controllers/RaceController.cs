@@ -18,13 +18,13 @@ namespace NPCgenerator.WebMVC.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Equipment
+        // GET: Race
         public ActionResult Index()
         {
             return View(db.Races.ToList());
         }
 
-        // GET: Equipment/Details/5
+        // GET: Race/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,13 +39,13 @@ namespace NPCgenerator.WebMVC.Controllers
             return View(race);
         }
 
-        // GET: Equipment/Create
+        // GET: Race/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Equipment/Create
+        // POST: Race/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -62,7 +62,7 @@ namespace NPCgenerator.WebMVC.Controllers
             return View(race);
         }
 
-        // GET: Equipment/Edit/5
+        // GET: Race/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,7 +77,7 @@ namespace NPCgenerator.WebMVC.Controllers
             return View(race);
         }
 
-        // POST: Equipment/Edit/5
+        // POST: Race/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -93,7 +93,7 @@ namespace NPCgenerator.WebMVC.Controllers
             return View(race);
         }
 
-        // GET: Equipment/Delete/5
+        // GET: Race/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,7 +108,7 @@ namespace NPCgenerator.WebMVC.Controllers
             return View(race);
         }
 
-        // POST: Equipment/Delete/5
+        // POST: Race/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
