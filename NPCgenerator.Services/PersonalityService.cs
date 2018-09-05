@@ -9,25 +9,25 @@ using System.Threading.Tasks;
 
 namespace NPCgenerator.Services
 {
-    public class EquipmentService : IEquipmentService
+    public class PersonalityService : IPersonalityService
     {
         private Guid _ownerId;
 
-        public EquipmentService(Guid userId)
+        public PersonalityService(Guid userId)
         {
             _ownerId = userId;
         }
-        public bool CreateEquipment(EquipmentCreate model)
+        public bool CreatePersonality(PersonalityCreate model)
         {
-            var entity = new Equipment
+            var entity = new Personality
             {
                 OwnerId = _ownerId,
-                EquipmentName = model.EquipmentName
+                PersonalityName = model.PersonalityName
             };
 
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
-                ctx.Equipments.Add(entity);
+                ctx.Personalitys.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }

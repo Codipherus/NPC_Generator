@@ -9,25 +9,25 @@ using System.Threading.Tasks;
 
 namespace NPCgenerator.Services
 {
-    public class EquipmentService : IEquipmentService
+    public class RaceService : IRaceService
     {
         private Guid _ownerId;
 
-        public EquipmentService(Guid userId)
+        public RaceService(Guid userId)
         {
             _ownerId = userId;
         }
-        public bool CreateEquipment(EquipmentCreate model)
+        public bool CreateRace(RaceCreate model)
         {
-            var entity = new Equipment
+            var entity = new Race
             {
                 OwnerId = _ownerId,
-                EquipmentName = model.EquipmentName
+                RaceName = model.RaceName
             };
 
             using(var ctx = new ApplicationDbContext())
             {
-                ctx.Equipments.Add(entity);
+                ctx.Races.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }

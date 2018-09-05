@@ -13,5 +13,6 @@ namespace NPCgenerator.Data
         public int ProfessionId { get; set; }
         [Required]
         public string ProfessionName { get; set; }
+        public Guid OwnerId { get; set; }
     }
 }

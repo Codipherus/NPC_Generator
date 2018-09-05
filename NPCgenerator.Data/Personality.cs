@@ -13,5 +13,6 @@ namespace NPCgenerator.Data
         public int PersonalityId { get; set; }
         [Required]
         public string PersonalityName { get; set; }
+        public Guid OwnerId { get; set; }
     }
 }

@@ -13,5 +13,6 @@ namespace NPCgenerator.Data
         public int RaceId { get; set; }
         [Required]
         public string RaceName { get; set; }
+        public Guid OwnerId { get; set; }
     }
 }

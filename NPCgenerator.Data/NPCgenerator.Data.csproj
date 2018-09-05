@@ -100,6 +100,14 @@
     <Compile Include="Migrations\201809041804412_owneridadded.Designer.cs">
       <DependentUpon>201809041804412_owneridadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809051320575_foo.cs" />
+    <Compile Include="Migrations\201809051320575_foo.Designer.cs">
+      <DependentUpon>201809051320575_foo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809051354189_add ownerID Prof.cs" />
+    <Compile Include="Migrations\201809051354189_add ownerID Prof.Designer.cs">
+      <DependentUpon>201809051354189_add ownerID Prof.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Personality.cs" />
     <Compile Include="Profession.cs" />
@@ -143,6 +151,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041804412_owneridadded.resx">
       <DependentUpon>201809041804412_owneridadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051320575_foo.resx">
+      <DependentUpon>201809051320575_foo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051354189_add ownerID Prof.resx">
+      <DependentUpon>201809051354189_add ownerID Prof.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
